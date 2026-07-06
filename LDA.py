@@ -16,7 +16,7 @@ st.sidebar.title("Navigation")
 page = st.sidebar.radio("Khtar ach bghiti t-chouf :", ["1. Présentation PPT (PDF)", "2. Cas Pratique LDA"])
 
 # Smiya dyal l-PDF exact kima 3ndek f GitHub
-pdf_filename = "Projet LDA – Discrimination Linéaire_compresse.pdf"
+pdf_filename = "Presentation LDA"
 
 # --- SECTION 1 : AFFICHAGE DU PPT ---
 if page == "1. Présentation PPT (PDF)":
