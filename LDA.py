@@ -15,8 +15,8 @@ st.set_page_config(page_title="Projet ML - LDA", layout="wide")
 st.sidebar.title("Navigation")
 page = st.sidebar.radio("Khtar ach bghiti t-chouf :", ["1. Présentation PPT (PDF)", "2. Cas Pratique LDA"])
 
-
-pdf_filename = "Presentation LDA"
+# Smiya dyal l-PDF exact kima 3ndek f GitHub
+pdf_filename = "Projet LDA – Discrimination Linéaire_compresse.pdf"
 
 # --- SECTION 1 : AFFICHAGE DU PPT ---
 if page == "1. Présentation PPT (PDF)":
@@ -27,28 +27,26 @@ if page == "1. Présentation PPT (PDF)":
         with open(pdf_filename, "rb") as f:
             pdf_data = f.read()
         
-        # Bouton pour télécharger le PPT direct
+        # Bouton pour télécharger le PPT direct (Hada khdam 100%)
         st.download_button(
-            label="📥 Télécharger la présentation PDF",
+            label="📥 Télécharger la présentation PDF complète",
             data=pdf_data,
             file_name=pdf_filename,
             mime="application/pdf"
         )
         
-        # Affichage direct et natif du PDF en Base64
-        st.info("💡 Utilisez les commandes du lecteur pour défiler les pages :")
+        st.markdown("---")
+        st.info("💡 Vous pouvez aussi lire la présentation ou la télécharger directement via le bouton ci-dessus.")
         
-        import base64
-        base64_pdf = base64.b64encode(pdf_data).decode('utf-8')
-        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" style="width:100%; height:700px;" frameborder="0"></iframe>'
-        st.markdown(pdf_display, unsafe_allow_html=True)
-
+        # Solution de secours visuelle pour le prof :
+        st.write("Si le lecteur intégré ne s'affiche pas, vous pouvez directement télécharger le document ci-dessus.")
+        
     except FileNotFoundError:
         st.error(f"Le fichier '{pdf_filename}' est introuvable sur GitHub. Vérifiez son nom.")
 
 # --- SECTION 2 : CAS PRATIQUE JUPYTER (LDA) ---
 elif page == "2. Cas Pratique LDA":
-    st.title("💻 Application Interactive - Analyse Discriminante Linéaire (LDA)")
+    st.title("Presentation LDA")
     st.write("Exécution en direct de l'algorithme sur le Dataset Iris :")
 
     # 1. Dataset & Split
