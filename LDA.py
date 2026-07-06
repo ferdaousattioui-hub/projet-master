@@ -13,10 +13,9 @@ st.set_page_config(page_title="Projet ML - LDA", layout="wide")
 
 # --- BARRE LATÉRALE DE NAVIGATION ---
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Khtar ach bghiti t-chouf :", ["1. Présentation PPT (PDF)", "2. Cas Pratique LDA"])
+page = st.sidebar.radio("Séléctionez ce que vous voulez voir :", ["1. Présentation PPT (PDF)", "2. Cas Pratique LDA"])
 
-# Smiya dyal l-PDF exact kima 3ndek f GitHub
-pdf_filename = "Projet LDA – Discrimination Linéaire_compresse.pdf"
+pdf_filename = "Presentation LDA"
 
 # --- SECTION 1 : AFFICHAGE DU PPT ---
 if page == "1. Présentation PPT (PDF)":
@@ -46,7 +45,7 @@ if page == "1. Présentation PPT (PDF)":
 
 # --- SECTION 2 : CAS PRATIQUE JUPYTER (LDA) ---
 elif page == "2. Cas Pratique LDA":
-    st.title("Presentation LDA")
+    st.title("💻 Application Interactive - Analyse Discriminante Linéaire (LDA)")
     st.write("Exécution en direct de l'algorithme sur le Dataset Iris :")
 
     # 1. Dataset & Split
