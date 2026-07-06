@@ -15,7 +15,7 @@ st.set_page_config(page_title="Projet ML - LDA", layout="wide")
 st.sidebar.title("Navigation")
 page = st.sidebar.radio("Khtar ach bghiti t-chouf :", ["1. Présentation PPT (PDF)", "2. Cas Pratique LDA"])
 
-# Smiya dyal l-PDF exact kima 3ndek f GitHub
+
 pdf_filename = "Presentation LDA"
 
 # --- SECTION 1 : AFFICHAGE DU PPT ---
@@ -35,12 +35,14 @@ if page == "1. Présentation PPT (PDF)":
             mime="application/pdf"
         )
         
-        # Affichage interactif du PDF dans l'application
+        # Affichage direct et natif du PDF en Base64
         st.info("💡 Utilisez les commandes du lecteur pour défiler les pages :")
-        st.components.v1.html(
-            f'<iframe src="https://docs.google.com/gview?url=https://github.com/ferdaousattioui-hub/projet-master/raw/main/{pdf_filename}&embedded=true" style="width:100%; height:600px;" frameborder="0"></iframe>',
-            height=600
-        )
+        
+        import base64
+        base64_pdf = base64.b64encode(pdf_data).decode('utf-8')
+        pdf_display = f'<iframe src="data:application/pdf;base64,{base64_pdf}" style="width:100%; height:700px;" frameborder="0"></iframe>'
+        st.markdown(pdf_display, unsafe_allow_html=True)
+
     except FileNotFoundError:
         st.error(f"Le fichier '{pdf_filename}' est introuvable sur GitHub. Vérifiez son nom.")
 
