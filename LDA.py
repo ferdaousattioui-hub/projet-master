@@ -15,33 +15,18 @@ st.set_page_config(page_title="Projet ML - LDA", layout="wide")
 st.sidebar.title("Navigation")
 page = st.sidebar.radio("Séléctionez ce que vous voulez voir :", ["1. Présentation PPT (PDF)", "2. Cas Pratique LDA"])
 
-pdf_filename = "Presentation LDA"
-
 # --- SECTION 1 : AFFICHAGE DU PPT ---
 if page == "1. Présentation PPT (PDF)":
     st.title("📂 Présentation du Projet")
-    st.write("Voici les diapositives théoriques de mon projet de Machine Learning.")
     
-    try:
-        with open(pdf_filename, "rb") as f:
-            pdf_data = f.read()
-        
-        # Bouton pour télécharger le PPT direct (Hada khdam 100%)
-        st.download_button(
-            label="📥 Télécharger la présentation PDF complète",
-            data=pdf_data,
-            file_name=pdf_filename,
-            mime="application/pdf"
-        )
-        
-        st.markdown("---")
-        st.info("💡 Vous pouvez aussi lire la présentation ou la télécharger directement via le bouton ci-dessus.")
-        
-        # Solution de secours visuelle pour le prof :
-        st.write("Si le lecteur intégré ne s'affiche pas, vous pouvez directement télécharger le document ci-dessus.")
-        
-    except FileNotFoundError:
-        st.error(f"Le fichier '{pdf_filename}' est introuvable sur GitHub. Vérifiez son nom.")
+    # Lien DocDroid direct li ghadi ykhalliha tban f l-interface
+    lien_docdroid = "https://docdro.id/DZmRHJh"
+    
+    # Affichage interactif f l-interface direct
+    st.components.v1.html(
+        f'<iframe src="{lien_docdroid}" style="width:100%; height:800px;" frameborder="0" allowfullscreen></iframe>',
+        height=800
+    )
 
 # --- SECTION 2 : CAS PRATIQUE JUPYTER (LDA) ---
 elif page == "2. Cas Pratique LDA":
