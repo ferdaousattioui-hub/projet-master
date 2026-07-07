@@ -19,13 +19,16 @@ page = st.sidebar.radio("Séléctionez ce que vous voulez voir :", ["1. Présent
 if page == "1. Présentation PPT (PDF)":
     st.title("📂 Présentation du Projet")
     
-    # Lien DocDroid direct li ghadi ykhalliha tban f l-interface
-    lien_docdroid = "https://docdro.id/DZmRHJh"
+    # ID dyal l-fichier dyalk men Google Drive
+    file_id = "1O4y7l7TkO0BcTdpT9au1ELkP2taXvCet"
     
-    # Affichage interactif f l-interface direct
+    # Lien de prévisualisation interactif dyal Google Drive
+    lien_drive_embed = f"https://drive.google.com/file/d/{file_id}/preview"
+    
+    # Affichage direct f l-interface dyal Streamlit
     st.components.v1.html(
-        f'<iframe src="{lien_docdroid}" style="width:100%; height:800px;" frameborder="0" allowfullscreen></iframe>',
-        height=800
+        f'<iframe src="{lien_drive_embed}" style="width:100%; height:750px;" frameborder="0" allowfullscreen></iframe>',
+        height=750
     )
 
 # --- SECTION 2 : CAS PRATIQUE JUPYTER (LDA) ---
